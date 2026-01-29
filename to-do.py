@@ -17,8 +17,8 @@ class TaskManager:
             print("No previous tasks found.")
 
     def save_data(self):
-       with open ("mytasks" , "w") as f:
-        for task in self.tasks:
+       with open (self.filename , "w") as f:
+          for task in self.tasks:
             f.write(task + '\n')
        print("Data Saved Successfully!")
            
@@ -30,7 +30,7 @@ class TaskManager:
 
     def view_tasks(self):
         # LOGIC:
-        if len(self.tasks==0):
+        if len(self.tasks)==0:
             print('your to-do-list is empty')
         else :
             print('\n your tasks')
