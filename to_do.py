@@ -1,8 +1,8 @@
 import os # We need this to check if file exists
 
 class TaskManager:
-    def __init__(self):
-        self.filename = "mytasks.txt"
+    def __init__(self , filename="mytasks.txt"):
+        self.filename = filename
         self.tasks = [] # This list will hold our data
         self.load_data() # Load automatically when object is created!
 
@@ -39,24 +39,26 @@ class TaskManager:
         
 
 # --- THE MAIN MENU LOOP (I wrote this part for you) ---
-manager = TaskManager()
-
-while True:
-    print("\n--- MENU ---")
-    print("1. Add Task")
-    print("2. View Tasks")
-    print("3. Save & Exit")
+if __name__ == "__main__":
     
-    choice = input("Enter choice (1/2/3): ")
+    manager = TaskManager()
 
-    if choice == "1":
-        t = input("Enter task name: ")
-        manager.add_task(t)
-    elif choice == "2":
-        manager.view_tasks()
-    elif choice == "3":
-        manager.save_data()
-        print("Goodbye!")
-        break
-    else:
-        print("Invalid choice.")
+    while True:
+        print("\n--- MENU ---")
+        print("1. Add Task")
+        print("2. View Tasks")
+        print("3. Save & Exit")
+        
+        choice = input("Enter choice (1/2/3): ")
+
+        if choice == "1":
+            t = input("Enter task name: ")
+            manager.add_task(t)
+        elif choice == "2":
+            manager.view_tasks()
+        elif choice == "3":
+            manager.save_data()
+            print("Goodbye!")
+            break
+        else:
+            print("Invalid choice.")
