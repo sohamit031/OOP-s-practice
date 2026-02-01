@@ -1,36 +1,28 @@
-# 1. NORMAL FUNCTION (The DVD)
-def get_numbers_list():
-    numbers = []
-    print("📦 Building the big list...")
-    for i in range(1, 4):
-        numbers.append(i)
-    return numbers  # Sends back the WHOLE list at once
-
-# 2. GENERATOR (The Stream)
+# --- THE GENERATOR FUNCTION ---
 def get_numbers_gen():
     print("⚡ Generator starting...")
-    yield 1
+    yield 24
     print("...Pausing...")
     yield 2
     print("...Pausing...")
     yield 3
     print("✅ Done!")
 
-# --- EXECUTION ---
+# --- HOW TO RUN IT ---
 
-print("--- 1. LIST ---")
-my_list = get_numbers_list()
-print(my_list)
-
-print("\n--- 2. GENERATOR ---")
+# 1. Create the generator object (It starts paused)
 my_gen = get_numbers_gen()
-print(my_gen) # Notice: It doesn't print numbers yet! It prints a "generator object"
+print(f"Status: {my_gen}") 
 
-print("\n--- PULLING VALUES ---")
-# We have to ask for the items one by one
-print(next(my_gen)) 
-print(next(my_gen))
-print(next(my_gen))
+# 2. Manually press "Play" (next) to get values one by one
+print("\n--- Pulling 1st Value ---")
+val1 = next(my_gen)
+print(f"Received: {val1}")
 
+print("\n--- Pulling 2nd Value ---")
+val2 = next(my_gen)
+print(f"Received: {val2}")
 
-
+print("\n--- Pulling 3rd Value ---")
+val3 = next(my_gen)
+print(f"Received: {val3}")
